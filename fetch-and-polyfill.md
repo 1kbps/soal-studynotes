@@ -1,39 +1,20 @@
 # soal jan 2018 study notes for fetch and polyfill
-#### compiled on feb 12 2018 
+##### compiled on feb 12 2018 
 
-=========================
-### fetch vs xmlhttprequest
-=========================
-
-#### client side http data requests
+## fetch vs xmlhttprequest
+----------------------------
+### client side http data requests ([source](https://gist.github.com/hedleysmith/15fa60fda5ef4369636a4b23e018dc8f))
 
 
+#### Client-side HTTP requests three ways, using ES6 syntax.
+ 1. jQuery.ajax()
+ 2. Superagent
+ 3. Fetch API
+ 4. Bonus helper
 
-
-/*
-
- * Client-side HTTP requests three ways, using ES6 syntax.
-
- * 1. jQuery.ajax()
-
- * 2. Superagent
-
- * 3. Fetch API
-
- * 4. Bonus helper
-
- */ 
-
-
-
-// 1. jQuery.ajax()
-
-// http://api.jquery.com/jquery.ajax/
-
-import jquery from 'jquery';
-
-
-
+** 1. [jQuery.ajax()](http://api.jquery.com/jquery.ajax/) **
+** import jquery from 'jquery'; **
+```
 jquery.ajax({
 
   method: "GET",
@@ -60,18 +41,13 @@ jquery.ajax({
 
   });
 
+```
 
 
 
-
-// 2. Superagent
-
-// https://github.com/visionmedia/superagent
-
-import request from 'superagent';
-
-
-
+** 2. [Superagent] (https://github.com/visionmedia/superagent) **
+** import request from 'superagent'; **
+```
 request
 
   .get('https://jsonplaceholder.typicode.com/users')
@@ -91,20 +67,14 @@ request
     }
 
   });
+```
 
 
-
-// 3. Fetch API
-
-// 'isomorphic-fetch' is optional. It will include a [Fetch API polyfill](https://github.com/github/fetch) 
-
-// [if needed](http://caniuse.com/#feat=fetch) (e.g for IE).
-
-import fetch from 'isomorphic-fetch'; 
-
-
-
-  fetch('https://messaging.settled.co.uk/debug')
+** 3. Fetch API
+'isomorphic-fetch' is optional. It will include a [Fetch API polyfill](https://github.com/github/fetch) 
+import fetch from 'isomorphic-fetch'; **
+```
+fetch('https://messaging.settled.co.uk/debug')
 
   .then(response => {
 
@@ -127,24 +97,13 @@ import fetch from 'isomorphic-fetch';
     console.log(error);
 
   });
+```
 
+** 4. Bonus: Fetch API respnse status check helper
+Check the status of a returned Fetch API call and throw an error if the 
+server returns an [error code.](https://www.tjvantoll.com/2015/09/13/fetch-and-errors/) **
 
-
-
-
-// 4. Bonus: Fetch API respnse status check helper
-
-
-
-/**
-
- * Check the status of a returned Fetch API call and throw an error if the 
-
- * server returns an error code.
-
- * See https://www.tjvantoll.com/2015/09/13/fetch-and-errors/
-
- */
+```
 
 function checkFetchStatus(response) {
 
@@ -162,11 +121,10 @@ function checkFetchStatus(response) {
 
   }
 
-=== Source: https://gist.github.com/hedleysmith/15fa60fda5ef4369636a4b23e018dc8f ===
+```
 
 
-Source 2
-========
+### XHR vs fetch cons synopsized [(source)](https://stackoverflow.com/questions/35549547/what-is-the-difference-between-the-fetch-api-and-xmlhttprequest?noredirect=1&lq=1)
 
 fetch
 - missing a builtin method to consume documents
@@ -177,7 +135,7 @@ XHR
 - can't return FormData instances
 - doesn't have an equivalent to fetch's no-cors mode
 
-=== Source: https://stackoverflow.com/questions/35549547/what-is-the-difference-between-the-fetch-api-and-xmlhttprequest?noredirect=1&lq=1 ===
+=== Source:  ===
 
 Additional: 
 
@@ -196,7 +154,7 @@ fetch github: https://github.com/github/fetch
 ============
 Polyfill: What is a Polyfill?
 A polyfill, or polyfiller, is a piece of code (or plugin) that provides the technology that you, the developer, expect the browser to provide natively. Flattening the API landscape if you will.
-=== Source: https://remysharp.com/2010/10/08/what-is-a-polyfill === 
+[Source](https://remysharp.com/2010/10/08/what-is-a-polyfill)
 
 Transpiling vs polyfilling: https://hackernoon.com/polyfills-everything-you-ever-wanted-to-know-or-maybe-a-bit-less-7c8de164e423
 
