@@ -1,12 +1,12 @@
 # soal jan 2018 study notes for fetch and polyfill
-### compiled on feb 12 2018 
+#### compiled on feb 12 2018 
 
-===========================
-||fetch vs xmlhttprequest||
-===========================
+=========================
+### fetch vs xmlhttprequest
+=========================
 
-client side http data requests
-==============================
+#### client side http data requests
+
 
 
 
